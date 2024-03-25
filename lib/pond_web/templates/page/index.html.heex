@@ -13,6 +13,15 @@
       <dd><%= Bech32.encode("kujiravaloper", @block.header.proposer_address) %></dd>
     </dl>
     <dl>
+      <dt>REST API:</dt>
+      <dd><a href="http://127.0.0.1:10117" target="_blank">http://127.0.0.1:10117</a></dd>
+      <dt>RPC Endpoint</dt>
+      <dd><a href="http://127.0.0.1:10156" target="_blank">http://127.0.0.1:10156</a></dd>
+      <dt>gRPC Endpoint</dt>
+      <dd><a href="http://127.0.0.1:10190" target="_blank">http://127.0.0.1:10190</a></dd>
+    </dl>
+
+    <dl>
       <dt>Last Commit Hash:</dt>
       <dd><%= Base.encode16(@block.header.last_commit_hash) %></dd>
       <dt>Data Hash:</dt>
