@@ -18,14 +18,14 @@ Then, clone and start your Pond application:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Please visit the [kujira-ex documentation](https://hexdocs.pm/kujira/api-reference.html) to learn more about what data is available and how to query it
-
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
 ## Learn more
 
-- Official website: https://www.phoenixframework.org/
-- Guides: https://hexdocs.pm/phoenix/overview.html
-- Docs: https://hexdocs.pm/phoenix
-- Forum: https://elixirforum.com/c/phoenix-forum
-- Source: https://github.com/phoenixframework/phoenix
+- Kujira Website: https://kujira.network/
+- kujira-ex Docs https://hexdocs.pm/kujira
+- Kujira Developer Docs https://docs.kujira.app/developers/developer-kickstart-page
+- Phoenix Website: https://www.phoenixframework.org/
+- Phoenix Guides: https://hexdocs.pm/phoenix/overview.html
+- Phoenix Docs: https://hexdocs.pm/phoenix
+- Phoenix Forum: https://elixirforum.com/c/phoenix-forum
