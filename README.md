@@ -9,8 +9,9 @@ First, start your local Pond network:
 - `pond init`
 - `pond start`
 
-Then, start your Phoenix server:
+Then, clone and start your Pond application:
 
+- `git clone https://github.com/Team-Kujira/pond-ex && cd pond-ex`
 - Install dependencies with `mix deps.get`
 - Create and migrate your database with `mix ecto.setup`
 - Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
