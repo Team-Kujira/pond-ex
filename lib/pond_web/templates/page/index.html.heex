@@ -1,38 +1,30 @@
-<section class="phx-hero">
+<div class="body">
   <h1><%= gettext "Welcome to %{name}!", name: "Pond" %></h1>
   <p>The quickest way to start building your app on the Kujira DeFi Blockchain</p>
-  <p>Latest Block: #<%= @block.header.height %></p>
-  <small><%= Base.encode16(@block.header.app_hash) %></small>
-</section>
-
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a target="_blank" href="https://hexdocs.pm/kujira">kujira-ex documentation</a>
-      </li>
-      <li>
-        <a target="_blank" href="https://docs.kujira.app/developers/developer-kickstart-page">Developer documentation</a>
-      </li>
-
-      <li>
-        <a target="_blank" href="https://hexdocs.pm/phoenix/overview.html">Phoenix Guides &amp; Docs</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a target="_blank" href="https://twitter.com/TeamKujira">Twitter @TeamKujira</a>
-      </li>
-      <li>
-        <a target="_blank" href="https://t.me/team_kujira">Kujira Telegram</a>
-      </li>
-      <li>
-        <a target="_blank" href="https://discord.gg/teamkujira">Kujira Discord</a>
-      </li>
-    </ul>
-  </article>
-</section>
+  <section class="hero">
+    <dl>
+      <dt>Chain ID:</dt>
+      <dd><%= @block.header.chain_id %></dd>
+      <dt>Height:</dt>
+      <dd><%= @block.header.height %></dd>
+      <dt>Timestamp:</dt>
+      <dd><%= DateTime.from_unix!(@block.header.time.seconds) %></dd>
+      <dt>Proposer Address:</dt>
+      <dd><%= Bech32.encode("kujiravaloper", @block.header.proposer_address) %></dd>
+    </dl>
+    <dl>
+      <dt>Last Commit Hash:</dt>
+      <dd><%= Base.encode16(@block.header.last_commit_hash) %></dd>
+      <dt>Data Hash:</dt>
+      <dd><%= Base.encode16(@block.header.data_hash) %></dd>
+      <dt>Validators Hash:</dt>
+      <dd><%= Base.encode16(@block.header.validators_hash) %></dd>
+      <dt>Consensus Hash:</dt>
+      <dd><%= Base.encode16(@block.header.consensus_hash) %></dd>
+      <dt>App Hash:</dt>
+      <dd><%= Base.encode16(@block.header.app_hash) %></dd>
+      <dt>Evidence Hash:</dt>
+      <dd><%= Base.encode16(@block.header.evidence_hash) %></dd>
+    </dl>
+  </section>
+</div>

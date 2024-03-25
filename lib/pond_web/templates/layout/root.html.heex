@@ -11,20 +11,50 @@
   </head>
   <body>
     <header>
-      <section class="container">
-        <nav>
-          <ul>
-            <li><a target="_blank" href="https://docs.kujira.app/developers/developer-kickstart-page">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
+      <a href="https://kujira.network/" target="_blank">
+        <img src={Routes.static_path(@conn, "/images/kujira-logo.png")} class="logo" alt="Kujira Logo"/>
+      </a>
+      <nav>
+        <ul class="links">
+          <li><a target="_blank" href="https://docs.kujira.app/developers/developer-kickstart-page">Get Started</a></li>
+          <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
+            <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
+          <% end %>
+        </ul>
+      </nav>
     </header>
     <%= @inner_content %>
+    <section class="row footer">
+      <article class="column">
+        <h2>Resources</h2>
+        <ul class="links">
+          <li>
+            <a target="_blank" href="https://hexdocs.pm/kujira">kujira-ex documentation</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://docs.kujira.app/developers/developer-kickstart-page">Developer documentation</a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://hexdocs.pm/phoenix/overview.html">Phoenix Guides &amp; Docs</a>
+          </li>
+        </ul>
+      </article>
+      <article class="column">
+        <h2>Help</h2>
+        <ul class="links">
+          <li>
+            <a target="_blank" href="https://twitter.com/TeamKujira">Twitter @TeamKujira</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://t.me/team_kujira">Kujira Telegram</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://discord.gg/teamkujira">Kujira Discord</a>
+          </li>
+        </ul>
+      </article>
+    </section>
+
   </body>
 </html>
