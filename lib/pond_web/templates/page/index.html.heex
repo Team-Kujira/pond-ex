@@ -1,6 +1,8 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
+  <h1><%= gettext "Welcome to %{name}!", name: "Pond" %></h1>
+  <p>The quickest way to start building your app on the Kujira DeFi Blockchain</p>
+  <p>Latest Block: #<%= @block.header.height %></p>
+  <small><%= Base.encode16(@block.header.app_hash) %></small>
 </section>
 
 <section class="row">
