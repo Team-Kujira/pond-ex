@@ -1,5 +1,7 @@
 # Pond
 
+![screenshot](https://github.com/Team-Kujira/pond-ex/blob/main/priv/static/images/screenshot.png?raw=true)
+
 The quickest way to start building your app on the Kujira DeFi Blockchain
 
 First, start your local Pond network:
