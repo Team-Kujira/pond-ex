@@ -17,7 +17,7 @@ Then, start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Please visit the [kujira-ex documentation](https://github.com/Team-Kujira/kujira-ex) to learn more about what data is available and how to query it
+Please visit the [kujira-ex documentation](https://hexdocs.pm/kujira/api-reference.html) to learn more about what data is available and how to query it
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
