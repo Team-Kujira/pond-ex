@@ -114,6 +114,10 @@ dd {
   word-break: break-all;
 }
 
+dd a {
+  color: var(--teal)
+}
+
 ul.links {
   list-style: none;
   padding: 0;
