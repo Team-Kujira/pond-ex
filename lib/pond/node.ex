@@ -7,7 +7,6 @@ defmodule Pond.Node do
 
   def start_link(_opts) do
     config = Application.get_env(:pond, __MODULE__)
-    IO.inspect(config)
 
     {:ok, channel} =
       GRPC.Stub.connect(config[:host], config[:port],
