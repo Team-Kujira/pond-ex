@@ -15,9 +15,10 @@ defmodule Pond.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Pond.PubSub},
       # Start the Endpoint (http/https)
-      PondWeb.Endpoint
+      PondWeb.Endpoint,
       # Start a worker by calling: Pond.Worker.start_link(arg)
       # {Pond.Worker, arg}
+      Pond.Node
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
