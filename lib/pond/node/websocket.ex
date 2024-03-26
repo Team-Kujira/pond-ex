@@ -36,6 +36,7 @@ defmodule Pond.Node.Websocket do
     case Jason.decode(msg, keys: :atoms) do
       {:ok, %{result: %{data: %{type: t, value: v}}}} ->
         Phoenix.PubSub.broadcast(Pond.PubSub, t, v)
+
         {:ok, state}
 
       _ ->
@@ -50,7 +51,6 @@ defmodule Pond.Node.Websocket do
   end
 
   def handle_info(msg, state) do
-    IO.inspect(msg)
     {:ok, state}
   end
 end
