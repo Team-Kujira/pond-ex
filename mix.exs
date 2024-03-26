@@ -49,7 +49,8 @@ defmodule Pond.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:kujira, "~> 0.1.6"},
-      {:bech32, "~> 1.0.0"}
+      {:bech32, "~> 1.0.0"},
+      {:websockex, "~> 0.4.3"}
     ]
   end
 

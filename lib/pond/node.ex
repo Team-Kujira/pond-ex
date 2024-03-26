@@ -1,22 +1,24 @@
 defmodule Pond.Node do
-  @moduledoc """
-  Stores a gRPC connection to chain core node
-  """
+  use Supervisor
+  require Logger
 
-  use Agent
+  def start_link(opts) do
+    Supervisor.start_link(__MODULE__, :ok, opts)
+  end
 
-  def start_link(_opts) do
+  @impl true
+  def init(:ok) do
     config = Application.get_env(:pond, __MODULE__)
 
-    {:ok, channel} =
-      GRPC.Stub.connect(config[:host], config[:port],
-        interceptors: [{GRPC.Logger.Client, level: :debug}]
-      )
+    children = [
+      {__MODULE__.Grpc, config},
+      {__MODULE__.Websocket, config}
+    ]
 
-    Agent.start_link(fn -> channel end, name: __MODULE__)
+    Supervisor.init(children, strategy: :one_for_one, name: __MODULE__.Supervisor)
   end
 
   def channel() do
-    Agent.get(__MODULE__, & &1)
+    __MODULE__.Grpc.channel()
   end
 end
