@@ -6,19 +6,7 @@ defmodule Pond.Node.Websocket do
     endpoint = config[:websocket]
     Logger.info("#{__MODULE__} Starting node websocket: #{endpoint}")
     {:ok, pid} = WebSockex.start_link("#{endpoint}/websocket", __MODULE__, %{})
-
-    message =
-      Jason.encode!(%{
-        jsonrpc: "2.0",
-        method: "subscribe",
-        id: 3,
-        params: %{
-          query: "tm.event='NewBlock'"
-        }
-      })
-
-    WebSockex.send_frame(pid, {:text, message})
-
+    subscribe(pid, 0, "tm.event='NewBlock'")
     {:ok, pid}
   end
 
@@ -50,7 +38,17 @@ defmodule Pond.Node.Websocket do
     {:reply, frame, state}
   end
 
-  def handle_info(msg, state) do
-    {:ok, state}
+  defp subscribe(pid, id, query) do
+    message =
+      Jason.encode!(%{
+        jsonrpc: "2.0",
+        method: "subscribe",
+        id: id,
+        params: %{
+          query: query
+        }
+      })
+
+    WebSockex.send_frame(pid, {:text, message})
   end
 end
