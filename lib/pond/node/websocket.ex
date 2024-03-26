@@ -2,25 +2,27 @@ defmodule Pond.Node.Websocket do
   use WebSockex
   require Logger
 
-  @topic inspect(__MODULE__)
-  def subscribe do
-    Phoenix.PubSub.subscribe(Kujira.PubSub, @topic)
-  end
-
   def start_link(config) do
     endpoint = config[:websocket]
     Logger.info("#{__MODULE__} Starting node websocket: #{endpoint}")
-    parent = self()
-    WebSockex.start_link("#{endpoint}/websocket", __MODULE__, %{parent: parent})
-  end
+    {:ok, pid} = WebSockex.start_link("#{endpoint}/websocket", __MODULE__, %{})
 
-  def send(pid, message) do
-    message = Jason.encode!(message)
-    Logger.info("#{__MODULE__} Sending message: #{message}")
+    message =
+      Jason.encode!(%{
+        jsonrpc: "2.0",
+        method: "subscribe",
+        id: 3,
+        params: %{
+          query: "tm.event='NewBlock'"
+        }
+      })
+
     WebSockex.send_frame(pid, {:text, message})
+
+    {:ok, pid}
   end
 
-  def handle_connect(conn, state) do
+  def handle_connect(_conn, state) do
     Logger.info("#{__MODULE__} Connected!")
 
     {:ok, state}
@@ -31,14 +33,24 @@ defmodule Pond.Node.Websocket do
   end
 
   def handle_frame({:text, msg}, state) do
-    Kernel.send(state.parent, {__MODULE__, msg})
+    case Jason.decode(msg, keys: :atoms) do
+      {:ok, %{result: %{data: %{type: t, value: v}}}} ->
+        Phoenix.PubSub.broadcast(Pond.PubSub, t, v)
+        {:ok, state}
 
-    {:ok, state}
+      _ ->
+        {:ok, state}
+    end
   end
 
   def handle_cast({:send, {_type, msg} = frame}, state) do
     Logger.debug("#{__MODULE__} [send] #{msg}")
 
     {:reply, frame, state}
+  end
+
+  def handle_info(msg, state) do
+    IO.inspect(msg)
+    {:ok, state}
   end
 end
