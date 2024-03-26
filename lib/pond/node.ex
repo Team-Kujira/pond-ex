@@ -21,4 +21,8 @@ defmodule Pond.Node do
   def channel() do
     __MODULE__.Grpc.channel()
   end
+
+  def subscribe(topic) do
+    Phoenix.PubSub.subscribe(Pond.PubSub, topic)
+  end
 end

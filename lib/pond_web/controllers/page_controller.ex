@@ -1,10 +1,11 @@
 defmodule PondWeb.PageController do
   alias Cosmos.Base.Tendermint
   use PondWeb, :controller
+  import Tendermint.V1beta1.Service.Stub
 
   def index(conn, _params) do
     {:ok, %{block: block}} =
-      Tendermint.V1beta1.Service.Stub.get_latest_block(
+      get_latest_block(
         Pond.Node.channel(),
         Tendermint.V1beta1.GetLatestBlockRequest.new()
       )
