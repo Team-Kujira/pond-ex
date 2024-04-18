@@ -15,8 +15,6 @@ const SonarConnect = {
       };
 
       const onChange = (v: Sonar | null) => {
-        console.log({ v });
-
         if (v) {
           this.pushEvent("sonar-connect-response", {
             address: v.account.address,
