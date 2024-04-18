@@ -22,7 +22,6 @@ import "../css/app.css";
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html";
 // Establish Phoenix Socket and LiveView configuration.
-import { Sonar } from "kujira.js/src/wallets/sonar";
 import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
 import topbar from "../vendor/topbar";
@@ -30,7 +29,6 @@ import { hooks } from "./page-live";
 
 declare global {
   interface Window {
-    sonar?: Sonar;
     liveSocket?: LiveSocket;
   }
 }

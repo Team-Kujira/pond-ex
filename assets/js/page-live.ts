@@ -1,6 +1,12 @@
 import { MAINNET } from "kujira.js/src/network";
 import { Sonar } from "kujira.js/src/wallets/sonar";
 
+declare global {
+  interface Window {
+    sonar?: Sonar;
+  }
+}
+
 const SonarConnect = {
   mounted() {
     this.el.addEventListener("click", (e) => {
