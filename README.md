@@ -31,3 +31,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 - Phoenix Guides: https://hexdocs.pm/phoenix/overview.html
 - Phoenix Docs: https://hexdocs.pm/phoenix
 - Phoenix Forum: https://elixirforum.com/c/phoenix-forum
+
+## Sonar Connection
+
+Sonar connect is provided as a demo integration. Sonar wallet is mainnet-only, and as such can't sign transactions for a Pond local network.

@@ -38,4 +38,27 @@
       <dd><%= Base.encode16(@block.header.evidence_hash) %></dd>
     </dl>
   </section>
+  <div class="sonar-connect">
+    <%= if is_nil(@sonar_address) do %>
+      <%= if is_nil(@sonar_connect_uri) do %>
+        <button id="connect" phx-hook="SonarConnect">
+          <%= img_tag(Routes.static_path(@socket, "/images/sonar-connect.png")) %>
+        </button>
+        <a target="_blank" href="https://sonar.kujira.network/">
+          <small>
+            Install Sonar
+          </small>
+        </a>
+      <% else %>
+        <span>Scan with Sonar to connect</span>
+        <div class="sonar-connect-qr">
+            <%= qr(@sonar_connect_uri) %>
+        </div>
+      <% end %>
+    <% else %>
+      <span class="connected">Sonar Connected</span>
+      <span class="address"><%= @sonar_address %></span>
+      <button class="disconnect" id="disconnect" phx-hook="SonarDisconnect">Disconnect</button>
+    <% end %>
+  </div>
 </div>
