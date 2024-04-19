@@ -46,7 +46,7 @@ defmodule PondWeb.PageLive do
     case uri
          |> QRCode.create()
          |> QRCode.render(:svg, %QRCode.Render.SvgSettings{
-           background_opacity: 0,
+           background_opacity: 0.0,
            qrcode_color: "#ffffff"
          })
          |> QRCode.to_base64() do
