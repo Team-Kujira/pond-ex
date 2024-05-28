@@ -48,7 +48,7 @@ defmodule Pond.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:kujira, "~> 0.1.22"},
+      {:kujira, "~> 0.1.51"},
       {:bech32, "~> 1.0.0"},
       {:websockex, "~> 0.4.3"},
       {:qr_code, "~> 3.0.0"},
