@@ -51,7 +51,8 @@ defmodule Pond.MixProject do
       {:kujira, "~> 0.1.22"},
       {:bech32, "~> 1.0.0"},
       {:websockex, "~> 0.4.3"},
-      {:qr_code, "~> 3.0.0"}
+      {:qr_code, "~> 3.0.0"},
+      {:gun, "~> 2.0.1", hex: :grpc_gun, override: true}
     ]
   end
 
