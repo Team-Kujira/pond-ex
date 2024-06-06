@@ -71,4 +71,4 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
-config :pond, Pond.Node, host: "127.0.0.1", port: 11190, websocket: "ws://127.0.0.1:10157"
+config :pond, Pond.Node, host: "127.0.0.1", port: 11190, websocket: "ws://127.0.0.1:11157"
